@@ -4,14 +4,13 @@ import {CartClientService} from '../Service/CartClientService'
 @Component({
     selector: 'customer-view',
     templateUrl: 'app/view/CustomerView.html',
-    directives:[CustomerViewModel],
     providers:[CartClientService]
 })
 export class CustomerViewModel {
 
     constructor(private customerService:CartClientService<Customer>) {
 
-       this.customerService.GetAll().then(cts=>this.Customers=cts);
+    //    this.customerService.GetAll().then(cts=>this.Customers=cts);
     }
 
     public Customers:Array<Customer>;

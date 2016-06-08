@@ -12,15 +12,13 @@ var core_1 = require('@angular/core');
 var CartClientService_1 = require('../Service/CartClientService');
 var CustomerViewModel = (function () {
     function CustomerViewModel(customerService) {
-        var _this = this;
         this.customerService = customerService;
-        this.customerService.GetAll().then(function (cts) { return _this.Customers = cts; });
+        //    this.customerService.GetAll().then(cts=>this.Customers=cts);
     }
     CustomerViewModel = __decorate([
         core_1.Component({
             selector: 'customer-view',
             templateUrl: 'app/view/CustomerView.html',
-            directives: [CustomerViewModel],
             providers: [CartClientService_1.CartClientService]
         }), 
         __metadata('design:paramtypes', [CartClientService_1.CartClientService])

@@ -1,12 +1,29 @@
 ﻿import { Component } from '@angular/core';
-import {CustomerViewModel} from './CustomerViewModel';
+import {TopMenuViewModel} from './TopMenuViewModel';
+import {LeftMenuViewModel} from './LeftMenuViewModel';
+import {CustomerViewModel} from './CustomerViewModel'
+import {DashboardViewModel} from './DashboardViewModel'
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 @Component({
     selector: 'main-view',
     templateUrl: 'app/view/MainView.html',
-    directives:[CustomerViewModel]
+    directives:[TopMenuViewModel,LeftMenuViewModel,ROUTER_DIRECTIVES],
+    providers:[ROUTER_PROVIDERS]
 })
-
+@RouteConfig([
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: DashboardViewModel,
+    useAsDefault: true
+  },
+  {
+    path: '/customers',
+    name: 'Customers',
+    component: CustomerViewModel
+  }
+])
 export class MainViewModel { 
 }
 
